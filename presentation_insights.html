@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>役員向けエンゲージメント向上プレゼン：制作の裏側とこだわりポイント</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #0d1b2a;
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #dadce0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .lead-text {
+            font-size: 15px;
+            color: #5f6368;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin: 30px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        /* アコーディオン（details/summary）のスタイリング */
+        details {
+            background-color: #f1f3f4;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        details[open] {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        summary {
+            padding: 15px 20px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            position: relative;
+            list-style: none; /* デフォルトの矢印を消す */
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Safari用のデフォルト矢印消去 */
+        }
+
+        summary::after {
+            content: "▼";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #5f6368;
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .details-content {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+
+        .meta-info {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: #e8f0fe;
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 18px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        strong {
+            color: #000;
+        }
+
+        .footer-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #34a853;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 40px;
+        }
+
+        .footer-section h3 {
+            color: #34a853;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 簡易的なパスワード・閲覧制限用のポップアップ（おまけ機能） */
+        #content-wrapper {
+            display: block;
+        }
+        
+        .secret-mode #content-wrapper {
+            display: none;
+        }
+        
+        #lock-screen {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .secret-mode #lock-screen {
+            display: block;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #1557b0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="content-wrapper">
+        <header>
+            <h1>役員向けエンゲージメント向上プレゼン：制作の裏側とこだわりポイント</h1>
+            <p class="lead-text">
+                今回の役員向けエンゲージメント向上活動のプレゼンですが、実は従来のPowerPointではなく、AIツール（Google VidsやGemini）を駆使して作成しました。<br>
+                今後の社内でのプレゼン作成や情報発信の参考になるかもしれませんので、今回の「こだわりポイント」と「どのように作ったか」を共有させていただきます。
+            </p>
+        </header>
+
+        <main>
+            <h2>1. 導入動画：「未来からのメッセージ」で心を掴む</h2>
+            <p style="margin-bottom: 15px; font-size: 15px;">
+                役員の皆様に冒頭で強く関心を持ってもらうため、「未来からのメッセージ」というコンセプトの動画からスタートする演出にこだわりました。
+            </p>
+            
+            <details>
+                <summary>動画制作の詳細を見る（クリックで開閉）</summary>
+                <div class="details-content">
+                    <div class="meta-info">使用ツール：Google Vids (Google Workspace)</div>
+                    <ul>
+                        <li><strong>AIアバターの活用：</strong> 実写ではなく、Vidsのアバター生成機能を使用しました。プロンプト（指示語）を入れるだけで複数のアバター候補を生成してくれ、そこから最適なものを選んでいます。</li>
+                        <li><strong>理想の音声をチョイス：</strong> アバターの雰囲気やメッセージのトーンに合わせて、最適な音声（声質）を選択しました。</li>
+                        <li><strong>自動リップシンク：</strong> 喋らせたい原稿（テキスト）を入力するだけで、音声の生成からアバターの口の動き（リップシンク）までを自動で合わせてくれるため、非常にスムーズに動画を作成できました。</li>
+                    </ul>
+                </div>
+            </details>
+
+            <h2>2. スライドではなく「HTML」でプレゼンを作成</h2>
+            <p style="margin-bottom: 15px; font-size: 15px;">
+                今回はパワーポイントなどは利用せず、Geminiに指示を出してHTML/CSSでプレゼン資料を構築しました。
+            </p>
+
+            <details>
+                <summary>HTML採用の理由とメリットを見る（クリックで開閉）</summary>
+                <div class="details-content">
+                    <div class="meta-info">使用ツール：Gemini (HTML/CSS出力)</div>
+                    <ul>
+                        <li><strong>圧倒的なスピードと再現性：</strong> AIを使ってスライド（PPT等）を直接作ろうとすると、デザインの微調整に時間がかかったり、意図した通りにならないことが多々あります。しかし、Geminiに「HTMLで書いて」と指示を出す方が、構成やテキストの反映が早く、指示通りに正確に構築してくれました。</li>
+                        <li><strong>Webならではのリッチな表現（CSS/JSの活用）：</strong> まさにこの共有資料がそうであるように、クリックすると詳細が開く「アコーディオン機能」や、特定の箇所をクリックすると画像や動画がポップアップする機能など、PowerPointでは実装が難しい「インタラクティブな仕掛け」をCSSやJavaScriptを使って簡単に組み込めたのが最大の魅力です。</li>
+                    </ul>
+                </div>
+            </details>
+
+            <div class="footer-section">
+                <h3>今後の活用に向けて</h3>
+                <p style="font-size: 14px; color: #3c4043;">
+                    このように、AI（Geminiでのコーディング支援、Vidsでの動画生成）を組み合わせることで、従来よりも短時間で、よりインパクトがあり、動きのあるリッチなプレゼン資料が作成できることが分かりました。<br>
+                    他のプロジェクトや企画提案などでも応用できる手法だと思いますので、もしよろしければご活用ください。
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <!-- パスワード保護用の画面（オプション） -->
+    <div id="lock-screen">
+        <h2>閲覧制限が設定されています</h2>
+        <p>この資料は関係者限定です。閲覧するには「閲覧する」ボタンを押してください。</p>
+        <!-- 簡易的な確認のみ、または必要に応じてJSでパスワードをかけられます -->
+        <button class="btn" onclick="unlock()">閲覧する</button>
+    </div>
+</div>
+
+<script>
+    // もし「見たい人だけ（簡易パスワードなど）」にしたい場合は、以下のコメントアウトを解除し、
+    // bodyタグに class="secret-mode" を付与してください。
+    
+    function unlock() {
+        // 簡易パスワードの例（必要に応じて使用してください）
+        /*
+        var password = prompt("パスワードを入力してください：");
+        if (password === "gws2026") { 
+            document.body.classList.remove("secret-mode");
+        } else {
+            alert("パスワードが違います");
+        }
+        */
+        
+        // 単なる閲覧確認の場合
+        document.body.classList.remove("secret-mode");
+    }
+</script>
+
+</body>
+</html>
